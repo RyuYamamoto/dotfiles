@@ -1,15 +1,27 @@
 return {
   {
-    "navarasu/onedark.nvim",
+    "olimorris/onedarkpro.nvim",
     priority = 1000,
     lazy = false,
     config = function()
       vim.opt.background = "dark"
-      require("onedark").setup({
-        style = "dark",
+
+      require("onedarkpro").setup({
+        theme = "onedark", -- onedark / onelight / onedark_vivid / onedark_dark
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          functions = "NONE",
+          strings = "NONE",
+          variables = "NONE",
+        },
+        options = {
+          transparency = false,
+          terminal_colors = true,
+        },
       })
-      require("onedark").load()
+
+      vim.cmd.colorscheme("onedark")
     end,
   },
 }
-

@@ -6,9 +6,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        buffer_close_icon = "",
+        -- buffer_close_icon = "",
         close_command = "bdelete %d",
-        close_icon = "",
+        -- close_icon = "",
         indicator = {
           style = "icon",
           icon = " ",
