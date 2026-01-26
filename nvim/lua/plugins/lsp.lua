@@ -18,13 +18,10 @@ return {
           ".clangd",
         },
         on_attach = function(client, bufnr)
-    -- C/C++だけ止めたいのでここで止める
-    -- 0.11でも動くはず（もし stop が無ければ pcall で無視される）
     pcall(function()
       vim.lsp.semantic_tokens.stop(bufnr, client.id)
     end)
 
-    -- 念のため：サーバ能力側も潰して「後から復活」を防ぐ
     client.server_capabilities.semanticTokensProvider = nil
   end,
       })

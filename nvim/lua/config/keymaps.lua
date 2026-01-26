@@ -31,8 +31,8 @@ vim.keymap.set('n', 'gr', function()
   require('telescope.builtin').grep_string({
     word_match = '-w',
     additional_args = {
-      '--no-follow',           -- シンボリックリンクを追わない
-      '--glob', '!**/test/**', -- test ディレクトリを除外
+      '--no-follow',
+      '--glob', '!**/test/**',
       '--glob', '!**/tests/**',
       '--glob', '!**/*_test.cpp',
       '--glob', '!**/*_test.hpp',
