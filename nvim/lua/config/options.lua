@@ -5,7 +5,6 @@ local options = {
 	tabstop=2,
 	shiftwidth=2,
 	softtabstop=2,
-	termguicolors=true,
 	title=true,
 	number=true,
 	relativenumber=true,

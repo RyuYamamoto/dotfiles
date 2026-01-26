@@ -1,11 +1,11 @@
--- lua/plugins/treesitter.lua
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",  -- 追加：安定版ブランチを使用
     build = ":TSUpdate",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("nvim-treesitter").setup({
+      require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "c",
           "cpp",

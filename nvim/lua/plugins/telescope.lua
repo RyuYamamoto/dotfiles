@@ -4,16 +4,25 @@ return {
     cmd = "Telescope",
     dependencies = {
       "nvim-lua/plenary.nvim",
-
       { "nvim-tree/nvim-web-devicons", lazy = true },
-
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "make",
       },
+      { "nvim-telescope/telescope-ui-select.nvim" },
     },
     opts = {
       defaults = {
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--follow",
+        },
         file_ignore_patterns = {
           "^%.git/",
           "^install/",
@@ -24,6 +33,12 @@ return {
         sorting_strategy = "ascending",
         layout_config = {
           prompt_position = "top",
+        },
+      },
+
+      pickers = {
+        find_files = {
+          find_command = { "fd", "--type", "f", "--follow" },
         },
       },
 

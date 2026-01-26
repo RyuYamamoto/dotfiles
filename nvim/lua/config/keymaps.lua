@@ -20,8 +20,25 @@ vim.api.nvim_set_keymap('n', 'k', 'gj', opts)
 vim.api.nvim_set_keymap('n', "<Leader>fc", "<cmd>Telescope frecency<CR>", opts)
 vim.api.nvim_set_keymap('n', "<Leader>ff", "<cmd>Telescope find_files<CR>", opts)
 vim.api.nvim_set_keymap('n', "<Leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+-- vim.api.nvim_set_keymap('n', "<Leader>fs", "<cmd>Telescope grep_string<CR>", opts)
+vim.api.nvim_set_keymap('n', "<Leader>fd", "<cmd>Telescope lsp_definitions<CR>", opts)
+vim.api.nvim_set_keymap('n', "<Leader>fr", "<cmd>Telescope lsp_references<CR>", opts)
+vim.api.nvim_set_keymap('n', "<Leader>fi", "<cmd>Telescope lsp_implementations<CR>", opts)
 vim.api.nvim_set_keymap('n', "<Leader>fb", "<cmd>Telescope buffers<CR>", opts)
 vim.api.nvim_set_keymap('n', "<Leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+
+vim.keymap.set('n', 'gr', function()
+  require('telescope.builtin').grep_string({
+    word_match = '-w',
+    additional_args = {
+      '--no-follow',           -- シンボリックリンクを追わない
+      '--glob', '!**/test/**', -- test ディレクトリを除外
+      '--glob', '!**/tests/**',
+      '--glob', '!**/*_test.cpp',
+      '--glob', '!**/*_test.hpp',
+    },
+  })
+end, { desc = "Grep exact word (no test, no symlink)" })
 
 -- NERDTree
 vim.api.nvim_set_keymap('n', "<Leader>e", "<cmd>NvimTreeToggle<CR>", opts)
@@ -31,3 +48,4 @@ vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
+
