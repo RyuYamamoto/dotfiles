@@ -3,11 +3,17 @@ local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
 
-config.font = wezterm.font("FiraCode Nerd Font")
-config.font_size = 9.0
+-- config.font = wezterm.font("CaskaydiaMono Nerd Font")
+-- config.font = wezterm.font("PlemolJP Console NF")
+-- config.font = wezterm.font("JetBrains Mono")
+config.font = wezterm.font {
+  family = "JetBrains Mono Nerd Font",
+  harfbuzz_features = { "liga=0", "clig=0", "calt=0" },
+}
+config.font_size = 10.0
 
-config.color_scheme = "Solarized Dark Higher Contrast"
--- config.color_scheme = "duskfox"
+-- config.color_scheme = "Solarized Dark Higher Contrast"
+config.color_scheme = "Solarized Dark (Gogh)"
 
 config.keys = {
   { key = "h", mods = "ALT", action = wezterm.action.ActivateTabRelative(-1) },
